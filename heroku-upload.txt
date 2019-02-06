@@ -1,0 +1,3 @@
+heroku plugins:install java
+heroku buildpacks:set heroku/jvm
+heroku war:deploy FeedbackSystemISL.war --app feedback-isl
