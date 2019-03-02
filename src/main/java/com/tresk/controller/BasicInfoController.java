@@ -14,13 +14,13 @@ public class BasicInfoController {
 
 	@Autowired
 	BasicInfoService service;
-	
-	@RequestMapping(value="/class/{serviceUrl}",method=RequestMethod.POST)
+
+	@RequestMapping(value="/basic/{serviceUrl}",method=RequestMethod.POST)
 	public String classDynamicController(@PathVariable String serviceUrl,@RequestBody String req) {
-		
+
 		DynamicController<BasicInfoService> dynamicController = new DynamicController<BasicInfoService>(service);
 		return dynamicController.serve(serviceUrl,req);
-		
+
 	}
-	
+
 }

@@ -1,0 +1,39 @@
+Teacherdeatils
+	[teacher_id,name,detail....]
+
+Teacher_Class_id
+		[class_id,Teacher_id]
+
+ClassDetails
+	[class_id ,class_name,]
+	
+	
+	
+SudentDetails
+	[student_id,class_id,]
+	
+Question_Structure_Master
+	[type_id,type]
+
+Question_Master
+	[Question_id,Question,type_id..]
+	
+Teachers_feedback_Master
+	response_id , student_id , teacher_id , class_id ,subject_id
+
+Sub_Teachers_feedback_Master
+  sub_res_id , response_id , question_id , rating 
+	
+Overall_response_table
+	response_id ,student_id , type_id , class_id
+
+Overall_Sub_response_table
+	sub_res_id , response_id , question_id , rating  
+
+Remark_Master
+ remark_id , student_id , class_id , reamrks
+	
+
+
+
+	
