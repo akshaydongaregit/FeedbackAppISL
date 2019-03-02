@@ -1,13 +1,7 @@
 package com.tresk.dao;
 
-import java.util.List;
-import java.util.Map;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
-import javax.persistence.Query;
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -22,17 +16,17 @@ public class BasicInfoDaoImpl implements BasicInfoDao{
 
 	@PersistenceContext //(type=PersistenceContextType.EXTENDED)
 	private EntityManager em ;
-	
+
 	@Autowired
 	private JdbcTemplate jt;
 	@Autowired
 	private SQLQueryHelper helper;
-	
+
 	public Clazz addClass(Clazz clazz) {
-		
+
 		System.out.println(helper.getQueryByName("INSERT_CLASS"));
 		jt.update(helper.getQueryByName("INSERT_CLASS"),new Object[]{clazz.getClassId(),clazz.getClassName(),clazz.getIsActive()});
-		
+
 		return clazz;
 	}
 
@@ -42,16 +36,16 @@ public class BasicInfoDaoImpl implements BasicInfoDao{
 		System.out.println(param);
 		Object[] inputs = JsonUtil.objectArrayOf(param);
 		jt.update(helper.getQueryByName("INSERT_CLASS"),inputs);
-		
+
 		return param;
 	}
-	
+
 	@Override
 	public String getClass(String param) {
-		
+
 		Object[] inputs = JsonUtil.objectArrayOf(param);
 		String result = JsonUtil.jsonOf(jt.queryForList(helper.getQueryByName("GET_CLASS"),inputs));
-		
+
 		return result;
 	}
 

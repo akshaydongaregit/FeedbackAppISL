@@ -1,0 +1,84 @@
+Tables 
+ 
+Dongare, Akshay
+Sat 29/12/2018 13:47
+To:
+Rai, Pradeep Kumar;
+
+create table Class_details
+class_id int PRIMARY KEY ,
+class_name
+is_active
+
+subject_details
+subject_id
+class_id FOREIGN KEY REFERENCES Class_details(class_id)
+subject_name
+is_active
+
+student_details
+stud_id
+class_id FOREIGN KEY REFERENCES Class_details(class_id)
+student_name
+gender
+dob
+address
+contact
+is_active
+
+teacher_details
+teacher_id
+teacher_name
+gender
+dob
+address
+contact
+is_active
+
+subject_teacher_mapping
+mapping_id
+sub_id
+teacher_id
+start_date
+end_date
+
+question_structure_details
+struct_id
+section_name
+is_active
+
+questions_details
+question_id
+struct_id
+question
+is_active
+
+evaluation_factors_details
+factor_id
+factor
+is_active
+
+core_feedbacks_details
+core_feedback_id
+stud_id
+feedback_type
+submitted_date
+
+teachers_feedback_details
+feedback_id
+core_feedback_id
+factor_id
+teacher_id
+feedback
+
+facilities_feedback_details
+feedback_id
+core_feedback_id
+question_id
+struct_id
+feedback
+
+general_feedback_details
+feedback_id
+core_feedback_id
+feedback
